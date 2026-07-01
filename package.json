@@ -1,6 +1,7 @@
 {
   "name": "ms-offers",
   "version": "0.0.0",
+  "packageManager": "pnpm@10.28.0",
   "scripts": {
     "build": "shx rm -rf dist && npm run lint && tsc --project tsconfig.prod.json",
     "clean-install": "rm -rf ./node_modules && rm -r package-lock.json && npm i",
@@ -33,7 +34,9 @@
     "jsonfile": "^6.2.1",
     "module-alias": "^2.3.4",
     "morgan": "^1.11.0",
-    "tspo": "^1.0.7"
+    "pino": "^10.3.1",
+    "tspo": "^1.0.7",
+    "zod": "^4.4.3"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
