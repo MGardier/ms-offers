@@ -23,6 +23,6 @@
     "scripts",
     "eslint.config.ts",
     "vitest.config.mts"
-  ],
+, "database/sequelize.config.js"  ],
   "exclude": ["src/public/*"]
 }

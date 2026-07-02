@@ -40,7 +40,11 @@ export const envSchema = z
     HOST: z.string(),
     ENABLE_HTTP_SERVER: z.stringbool(),
 
-  /* #################### DEV DATABASE (see DOCKER_COMPOSE_VARS above) ########################### */
+  /* #################### DATABASE ########################### */
+
+    DATABASE_URL: z.url(),
+
+  /* #################### DEV POSTGRES (see DOCKER_COMPOSE_VARS above) ########################### */
 
     // POSTGRES
     POSTGRES_USER: z.string().optional(),
@@ -74,6 +78,7 @@ export const envSchema = z
     Port: env.PORT,
     Host: env.HOST,
     EnableHttpServer: env.ENABLE_HTTP_SERVER,
+    DatabaseUrl: env.DATABASE_URL,
   }));
 
 /******************************************************************************
