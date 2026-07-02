@@ -41,6 +41,13 @@ export default defineConfig([
       'n/no-extraneous-import': 'error'
     },
   },
+  // env.ts is the single entry point allowed to read process.env
+  {
+    files: ['**/config/env.ts'],
+    rules: {
+      'no-process-env': 'off',
+    },
+  },
   // MUST be last — disables ALL formatting rules
   eslintConfigPrettier,
 ]);
