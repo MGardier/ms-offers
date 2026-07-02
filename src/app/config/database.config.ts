@@ -11,7 +11,7 @@
  * want to crash the process while the DB layer is still a placeholder.
  *
  * TODO: once Sequelize/PostgreSQL is set up, promote these to required env
- * variables validated in "@src/config/env".
+ * variables validated in "@src/app/config/env".
  */
 /* eslint-disable no-process-env */
 export const databaseConfig = {

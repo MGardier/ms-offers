@@ -1,6 +1,6 @@
 import logger from 'jet-logger';
 
-import databaseConfig from '@src/config/database.config';
+import databaseConfig from '@src/app/config/database.config';
 
 /******************************************************************************
                                 Sequelize

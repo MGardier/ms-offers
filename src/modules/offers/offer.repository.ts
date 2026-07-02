@@ -8,7 +8,7 @@ import { CreateOfferDto, Offer, UpdateOfferDto } from './types';
  * Data-access layer for offers. It knows nothing about Express or HTTP.
  *
  * The methods are async and already shaped for Sequelize. Until the ORM is
- * wired (see "@src/database/sequelize"), they return empty placeholders.
+ * wired (see "@src/app/database/sequelize"), they return empty placeholders.
  *
  * TODO: replace the stub bodies with Sequelize queries on "OfferModel".
  */

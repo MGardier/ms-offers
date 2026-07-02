@@ -3,7 +3,7 @@ import logger from 'jet-logger';
 
 import HttpStatusCodes from '@src/common/constants/http-status-codes';
 import { AppError } from '@src/common/errors/app-error';
-import { EnvVars, NodeEnvs } from '@src/config/env';
+import { EnvVars, NodeEnvs } from '@src/app/config/env';
 
 /******************************************************************************
                               Middleware

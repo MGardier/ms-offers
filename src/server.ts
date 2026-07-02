@@ -5,9 +5,9 @@ import morgan from 'morgan';
 import Paths from '@src/common/constants/paths';
 import errorMiddleware from '@src/common/middlewares/error.middleware';
 import notFoundMiddleware from '@src/common/middlewares/not-found.middleware';
-import apiRouter from '@src/routes';
+import apiRouter from '@src/app/routes';
 
-import { EnvVars, NodeEnvs } from './config/env';
+import { EnvVars, NodeEnvs } from './app/config/env';
 
 /******************************************************************************
                                 Setup

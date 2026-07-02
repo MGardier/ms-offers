@@ -9,7 +9,7 @@ import { Offer } from './types';
  *
  * Sequelize is not installed yet, so this file only documents the intended
  * shape. Once the ORM is added, replace the constant below with a real
- * `Model`/`init` definition and register it in "@src/database/sequelize".
+ * `Model`/`init` definition and register it in "@src/app/database/sequelize".
  *
  * TODO (Sequelize):
  *   export class OfferModel extends Model<Offer> implements Offer { ... }
