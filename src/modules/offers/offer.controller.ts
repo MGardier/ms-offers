@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from 'express';
 import HttpStatusCodes from '@src/common/constants/http-status-codes';
 
 import offerService from './offer.service';
-import { CreateOfferDto, UpdateOfferDto } from './types';
+import { CreateOfferDto, UpdateOfferDto } from './dto/offer.types';
 
 /******************************************************************************
                               Controller

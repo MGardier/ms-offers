@@ -8,9 +8,9 @@ services:
     environment:
       POSTGRES_USER: ${POSTGRES_USER:-root}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?err}
-      POSTGRES_DB: ${POSTGRES_DB:-cv_tools}
+      POSTGRES_DB: ${POSTGRES_DB:-ms_offers}
     volumes:
-      - postgres_data:/var/lib/postgresql
+      - postgres_data:/var/lib/postgresql/data
     ports:
       - '5423:5432'
     healthcheck:

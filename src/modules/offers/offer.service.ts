@@ -1,5 +1,5 @@
 import offerRepository, { OfferRepository } from './offer.repository';
-import { CreateOfferDto, Offer, UpdateOfferDto } from './types';
+import { CreateOfferDto, Offer, UpdateOfferDto } from './dto/offer.types';
 
 /******************************************************************************
                                 Service
