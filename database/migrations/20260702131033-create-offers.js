@@ -1,32 +1,5 @@
 'use strict';
 
-const OFFER_SOURCES = ['FT_API', 'INTERNAL_DB'];
-
-const JOBBOARDS = [
-  'FRANCE_TRAVAIL',
-  'LINKEDIN',
-  'WTTJ',
-  'APEC',
-  'HELLOWORK',
-  'INDEED',
-  'OTHER',
-];
-
-const CONTRACT_TYPES = [
-  'CDI',
-  'CDD',
-  'INTERNSHIP',
-  'APPRENTICESHIP',
-  'FREELANCE',
-  'TEMPORARY',
-  'OTHER',
-  'UNKNOWN',
-];
-
-const REMOTE_MODES = ['FULL_REMOTE', 'HYBRID', 'ON_SITE', 'UNKNOWN'];
-
-const SALARY_PERIODS = ['HOUR', 'DAY', 'MONTH', 'YEAR'];
-
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.sequelize.query(
@@ -62,7 +35,7 @@ module.exports = {
       },
 
       contract_type: {
-        type: Sequelize.ENUM(...CONTRACT_TYPES),
+        type: Sequelize.STRING,
         allowNull: true,
       },
 
@@ -82,7 +55,7 @@ module.exports = {
       },
 
       salary_period: {
-        type: Sequelize.ENUM(...SALARY_PERIODS),
+        type: Sequelize.STRING,
         allowNull: true,
       },
 
@@ -92,7 +65,7 @@ module.exports = {
       },
 
       remote_mode: {
-        type: Sequelize.ENUM(...REMOTE_MODES),
+        type: Sequelize.STRING,
         allowNull: true,
       },
 
@@ -138,12 +111,12 @@ module.exports = {
       },
 
       jobboard: {
-        type: Sequelize.ENUM(...JOBBOARDS),
+        type: Sequelize.STRING,
         allowNull: false,
       },
 
       source: {
-        type: Sequelize.ENUM(...OFFER_SOURCES),
+        type: Sequelize.STRING,
         allowNull: false,
       },
 
@@ -170,25 +143,14 @@ module.exports = {
       },
     });
 
-      },
+    await queryInterface.addIndex('offers', ['jobboard', 'source_offer_key'], {
+      unique: true,
+      name: 'offers_source_offer_key_unique',
+    });
+
+  },
 
   async down(queryInterface) {
     await queryInterface.dropTable('offers');
-
-    await queryInterface.sequelize.query(
-      'DROP TYPE IF EXISTS "enum_offers_contract_type";',
-    );
-    await queryInterface.sequelize.query(
-      'DROP TYPE IF EXISTS "enum_offers_salary_period";',
-    );
-    await queryInterface.sequelize.query(
-      'DROP TYPE IF EXISTS "enum_offers_remote_mode";',
-    );
-    await queryInterface.sequelize.query(
-      'DROP TYPE IF EXISTS "enum_offers_jobboard";',
-    );
-    await queryInterface.sequelize.query(
-      'DROP TYPE IF EXISTS "enum_offers_source";',
-    );
   },
 };

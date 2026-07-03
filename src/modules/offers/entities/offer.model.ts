@@ -84,8 +84,11 @@ OfferModel.init(
     },
 
     contractType: {
-      type: DataTypes.ENUM(...Object.values(ContractType)),
+      type: DataTypes.STRING,
       allowNull: true,
+      validate: {
+        isIn: [Object.values(ContractType)],
+      },
     },
 
     rawContract: {
@@ -104,8 +107,11 @@ OfferModel.init(
     },
 
     salaryPeriod: {
-      type: DataTypes.ENUM(...Object.values(SalaryPeriod)),
+      type: DataTypes.STRING,
       allowNull: true,
+      validate: {
+        isIn: [Object.values(SalaryPeriod)],
+      },
     },
 
     rawSalary: {
@@ -114,8 +120,11 @@ OfferModel.init(
     },
 
     remoteMode: {
-      type: DataTypes.ENUM(...Object.values(RemoteMode)),
+      type: DataTypes.STRING,
       allowNull: true,
+      validate: {
+        isIn: [Object.values(RemoteMode)],
+      },
     },
 
     rawRemote: {
@@ -160,13 +169,19 @@ OfferModel.init(
     },
 
     jobboard: {
-      type: DataTypes.ENUM(...Object.values(Jobboard)),
+      type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        isIn: [Object.values(Jobboard)],
+      },
     },
 
     source: {
-      type: DataTypes.ENUM(...Object.values(OfferSource)),
+      type: DataTypes.STRING,
       allowNull: false,
+      validate: {
+        isIn: [Object.values(OfferSource)],
+      },
     },
 
     publishedAt: {
@@ -194,5 +209,12 @@ OfferModel.init(
     tableName: 'offers',
     timestamps: true,
     underscored: true,
+    indexes: [
+      {
+        unique: true,
+        fields: ['jobboard', 'source_offer_key'] , 
+        name: 'offers_source_offer_key_unique',
+      },
+    ],
   },
 );
